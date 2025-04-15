@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zeotap Data Ingestion Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>ClickHouse & Flat File Data Ingestion</h2>
+  <div>
+    <label>Data Source:</label>
+    <select id="sourceSelect">
+      <option value="clickhouse">ClickHouse</option>
+      <option value="flatfile">Flat File</option>
+    </select>
+    <div id="clickhouseConfig">
+      <input placeholder="Host" id="chHost">
+      <input placeholder="Port" id="chPort">
+      <input placeholder="Database" id="chDB">
+      <input placeholder="User" id="chUser">
+      <input placeholder="JWT Token" id="chJWT">
+      <input placeholder="Table" id="chTable">
+      <input placeholder="Columns (comma-separated)" id="chCols">
+      <button onclick="exportClickhouse()">Export to Flat File</button>
+    </div>
+    <div id="fileUpload">
+      <input type="file" id="csvFile">
+      <input placeholder="Table Name for ClickHouse" id="targetTable">
+      <button onclick="importFile()">Import to ClickHouse</button>
+    </div>
+  </div>
+  <div id="result"></div>
+  <script src="script.js"></script>
+</body>
+</html>
